@@ -1,0 +1,35 @@
+第23章 郵便番号データを検索する
+・郵便番号データの取得
+csvファイルの文字コード、Shift_JIS
+csvファイルのファイル形式
+
+・csvライブラリ
+require csv
+CSV.open
+結果を出力する秒数
+
+・sqlite3ライブラリ
+sqlite3
+rubygem
+databaseの作成
+
+・データの登録
+テーブルの作成
+Database#open
+
+・データの検索
+Database#execute
+SELECT WHERE 条件
+部分一致検索 カラム名 LIKE "%文字列%"
+find_by_codeとfind_by_address
+秒数の差分
+file.joinメソッド
+コマンドラインで受け取った引数がアドレスか住所かを判別
+
+・Bundler
+bundle version
+Gemfileを作成
+Gemfileの指定によるインストール
+Gemfile.lock
+Gemfile.lockに記録されたパッケージを読み込むbundle exe ruby postal.rb
+ライブラリの更新

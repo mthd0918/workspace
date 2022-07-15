@@ -1,0 +1,5 @@
+全角の空白を削除
+
+1.normal
+2.特殊文字あり、CGI.unescapeHTMLなし
+3.特殊文字あり、CGI.unescapeHTMLあり

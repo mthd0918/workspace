@@ -1,0 +1,38 @@
+第22章 テキスト処理を行う
+
+22.1 テキストの用意
+・ファイルのダウンロード
+uri
+openfile
+encode
+
+・本文のテキストを取り出す
+file.read
+encode
+each_line
+in_header = false
+break if
+write
+
+・タグを削除する
+require "cgi/utils"
+正規表現 /[^>]+>/
+CGT.unescapeメソッド
+
+22.2 simple_grep.rbの拡張:件数の表示
+・マッチした行を数える
+wcコマンド、findコマンド
+scanメソッド、文字列に対するメソッド
+
+22.3 simple_grep.rbの拡張:マッチした箇所の表示
+・マッチした位置を見やすくする
+gsubメソッド
+ブロック変数
+
+・前後10文字ずつ表示する
+正規表現 {n}
+正規表現 $` $'
+\u3000
+
+・前後の文字数を変更可能にする
+変数len

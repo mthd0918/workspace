@@ -1,0 +1,39 @@
+#11.3.1authenticated?メソッドの抽象化
+
+```
+self.remember_digest
+```
+rememberの部分をどうにかして変数として扱いたい
+受け取ったパラメータに応じて呼び出すメソッドを切り替える手法を使う
+メタプログラミングを一言で言うと「プログラムでプログラムを作成する」こと
+sendメソッドの強力きわまる機能です。このメソッドは、渡されたオブジェクトに「メッセージを送る」ことによって、呼び出すメソッドを動的に決めることができる
+
+```
+$ rails console
+>> a = [1, 2, 3]
+>> a.length
+=> 3
+>> a.send(:length)
+=> 3
+>> a.send("length")
+=> 3
+```
+
+sendを通して渡したシンボル:lengthや文字列"length"は、いずれもlengthメソッドと同じ結果になりました。つまり、どちらもオブジェクトにlengthメソッドを渡しているため、等価
+
+```
+>> user = User.first
+>> user.activation_digest
+=> "$2a$10$4e6TFzEJAVNyjLv8Q5u22ensMt28qEkx0roaZvtRcp6UZKRM6N9Ae"
+>> user.send(:activation_digest)
+=> "$2a$10$4e6TFzEJAVNyjLv8Q5u22ensMt28qEkx0roaZvtRcp6UZKRM6N9Ae"
+>> user.send("activation_digest")
+=> "$2a$10$4e6TFzEJAVNyjLv8Q5u22ensMt28qEkx0roaZvtRcp6UZKRM6N9Ae"
+>> attribute = :activation
+>> user.send("#{attribute}_digest")
+=> "$2a$10$4e6TFzEJAVNyjLv8Q5u22ensMt28qEkx0roaZvtRcp6UZKRM6N9Ae"
+```
+
+シンボル:activationと等しいattribute変数を定義し、文字列の式展開（interpolation）を使って引数を正しく組み立ててから、sendに渡しています。
+
+

@@ -1,0 +1,13 @@
+# 11.3アカウントを有効化する
+
+AccountActivationsコントローラのeditアクションを書く
+ & AccountActivationsコントローラからUserモデルにコードを移していく作業（リファクタリング）
+
+## 11.3.1authenticated?メソッドの抽象化
+
+```
+user = User.find_by(email: params[:email])
+if user && user.authenticated?(:activation, params[:id])
+```
+
+

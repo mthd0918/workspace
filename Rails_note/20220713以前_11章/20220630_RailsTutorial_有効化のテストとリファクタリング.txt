@@ -1,0 +1,23 @@
+#11.3.1authenticated?メソッドの抽象化
+
+```
+self.remember_digest
+```
+目標: 上記のrememberを変数として扱う
+
+受け取ったパラメータに応じて呼び出すメソッドを切り替える手法を使う cf)メタプログラミング
+
+sendメソッド
+レシーバの持っているメソッドを呼び出すことができる
+object.send(メソッドa, メソッドaの引数) 
+
+```
+user.authenticated?(:remember, remember_token)
+
+def authenticated?(attribute, token)
+  digest = send("#{attribute}_digest")
+  return false if digest.nil?
+  BCrypt::Password.new(digest).is_password?(token)
+end
+```
+

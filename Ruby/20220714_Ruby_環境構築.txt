@@ -1,0 +1,66 @@
+■Ubuntu環境を構築
+[参考]
+https://docs.microsoft.com/ja-jp/windows/wsl/install
+
+下記のコマンドは未実施　すでにwslコマンドがインストールされていたため
+$ wsl --install
+
+$ wsl --install -d Ubuntu-20.04
+
+ubuntu20.04
+_username: toor
+_password : password
+
+vscodeを使用するため拡張パックをインストール
+https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+
+■Gitインストール
+sudo apt-get update
+apt-get install git
+git config --global user.name hidechika
+git config --global user.email 'mthd0918@gmail.com'
+
+
+■Rubyをインストール
+[参考]
+https://qiita.com/kerupani129/items/77dd1e3390b53f4e97b2
+
+# ツールのインストール
+$ apt update
+$ apt install gcc make
+$ apt install libssl-dev zlib1g-dev
+
+# rbenvリポジトリをクローン
+$ git clone --depth 1 https://github.com/rbenv/rbenv.git ~/.rbenv
+
+# rbenv の高速化
+$ cd ~/.rbenv && src/configure && make -C src
+
+# .bashrcへパスを書き込み、反映
+$ vi ~/.bashrc
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - bash)"
+$ source ~/.bashrc
+
+$ git clone --depth 1 https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
+# インストール可能な Ruby のバージョンを確認
+$ rbenv install -l
+
+# バージョン 3.1.2を指定してインストール
+$ rbenv install 3.1.2
+
+# 設定を再度反映
+$ source ~/.bashrc
+
+# Rubyがインストールされているかを確認
+$ ruby -v
+
+=======
+あとでよむ
+=======
+Bash: .bashrcと.bash_profileの違いを今度こそ理解する
+https://techracho.bpsinc.jp/hachi8833/2021_07_08/66396
+
+git,dockerを設定したい場合
+https://docs.microsoft.com/ja-jp/windows/wsl/setup/environment

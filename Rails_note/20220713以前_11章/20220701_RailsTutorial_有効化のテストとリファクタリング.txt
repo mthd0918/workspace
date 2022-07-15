@@ -1,0 +1,30 @@
+#11.3.1authenticated?メソッドの抽象化
+
+```
+self.remember_digest
+```
+目標: 上記のrememberを変数として扱う
+
+受け取ったパラメータに応じて呼び出すメソッドを切り替える手法を使う cf)メタプログラミング
+
+sendメソッド
+レシーバの持っているメソッドを呼び出すことができる
+object.send(メソッドa, メソッドaの引数) 
+
+```
+class User
+	def hoge(x)
+		puts "aaa"
+	end
+end
+
+user = User.new
+
+user.hoge
+
+user.send(:hoge)
+user.send("hoge")
+```
+
+
+
