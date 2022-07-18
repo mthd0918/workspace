@@ -41,4 +41,3 @@
 
 送信が無効の場合→newページを出力
 
-rails generate migration add_reset_to_users reset_digest:string \reset_sent_at:datetime
