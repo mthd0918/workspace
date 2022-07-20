@@ -45,4 +45,9 @@
 
 ## 12.2パスワード再設定のメール送信
 
-a
+下記のURLでメール再送信のプレビューが送信できる
+
+https://d4fb493e697e4ad39de2437cefda0734.vfs.cloud9.us-east-1.amazonaws.com//rails/mailers/user_mailer/password_reset
+
+## 12.2.2送信メールのテスト
+
